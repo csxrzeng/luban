@@ -1,4 +1,4 @@
-﻿using Luban.Defs;
+using Luban.Defs;
 using Luban.RawDefs;
 using Luban.Utils;
 using System;
@@ -19,7 +19,7 @@ public class GameFrameXTableImporter : ITableImporter
     {
         string dataDir = GenerationContext.GlobalConf.InputDataDir;
 
-        string fileNamePatternStr = EnvManager.Current.GetOptionOrDefault("tableImporter", "filePattern", false, "([a-zA-Z0-9]-.+)");
+        string fileNamePatternStr = EnvManager.Current.GetOptionOrDefault("tableImporter", "filePattern", false, "^([a-zA-Z0-9]-.+)");
         string tableNamespaceFormatStr = EnvManager.Current.GetOptionOrDefault("tableImporter", "tableNamespaceFormat", false, "{0}");
         string tableNameFormatStr = EnvManager.Current.GetOptionOrDefault("tableImporter", "tableNameFormat", false, "Tb{0}");
         string valueTypeNameFormatStr = EnvManager.Current.GetOptionOrDefault("tableImporter", "valueTypeNameFormat", false, "{0}");
