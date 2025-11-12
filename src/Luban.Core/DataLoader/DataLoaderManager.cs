@@ -55,7 +55,14 @@ public class DataLoaderManager
             s_logger.Trace("load table:{} file:{}", table.FullName, file);
             if (!File.Exists(file) && !Directory.Exists(file))
             {
-                throw new Exception($"'{table.FullName}'的input文件或目录不存在: {file} ");
+                if (table.NeedExport())
+                {
+                    throw new Exception($"'{table.FullName}'的input文件或目录不存在: {file} ");
+                }
+                else
+                {
+                    return new List<Record>();
+                }
             }
             string loaderName = options.TryGetValue("loader", out var name) ? name : FileUtil.GetExtensionWithDot(file);
             var loader = CreateDataLoader(loaderName);
