@@ -11,7 +11,7 @@ public class BinaryDeserializeVisitor : DecoratorFuncVisitor<string, string, str
     {
         if (type.IsNullable)
         {
-            return $"if({bufName}.ReadBool()){{ {type.Apply(BinaryUnderlyingDeserializeVisitor.Ins, bufName, fieldName, 0)} }} else {{ {fieldName} = null; }}";
+            return $"if ({bufName}.ReadBool()) {{ {type.Apply(BinaryUnderlyingDeserializeVisitor.Ins, bufName, fieldName, 0)} }} else {{ {fieldName} = null; }}";
         }
         else
         {

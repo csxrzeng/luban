@@ -32,7 +32,7 @@ public class CsharpTemplateExtension : ScriptObject
     // 空格问题优化
     public static string MethodModifier(DefBean bean)
     {
-        return bean.ParentDefType != null ? "override" : (bean.IsAbstractType ? " virtual" : "");
+        return bean.ParentDefType != null ? " override" : (bean.IsAbstractType ? " virtual" : "");
     }
 
     public static string NamespaceWithGraceBegin(string ns)
